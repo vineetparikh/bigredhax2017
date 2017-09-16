@@ -7,7 +7,7 @@ accGetter = pymysql.connect(
     user='root',
     passwd='root',
     host='localhost')
-account=acc.cursor()
+account=accGetter.cursor()
 account.execute("INSERT INTO Account_Mapping VALUES (Null, 0)")
 accGetter.commit()
 
