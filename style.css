@@ -1,0 +1,12 @@
+html {
+  background-color: #DAB9FF;
+}
+section {
+  font-size: 12pt;
+}
+blockquote {
+  font-family: Consolas, monaco, monospace;
+  width: 40%;
+  padding: 10px;
+  background-color: #F5B7FF;
+}
