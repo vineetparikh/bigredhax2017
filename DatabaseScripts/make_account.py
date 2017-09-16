@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-# debug mode
-import cgib
-cgitb.enable()
-
-
 # connects to Accounts database
 import pymysql
 accGetter = pymysql.connect(
@@ -12,7 +7,7 @@ accGetter = pymysql.connect(
     user='root',
     passwd='root',
     host='localhost')
-account=acc.cursor()
+account=accGetter.cursor()
 account.execute("INSERT INTO Account_Mapping VALUES (Null, 0)")
 accGetter.commit()
 
