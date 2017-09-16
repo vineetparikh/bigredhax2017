@@ -5,7 +5,7 @@ import pymysql
 accGetter = pymysql.connect(
     db='Accounts',
     user='root',
-    passwd='',
+    passwd='root',
     host='localhost')
 account=acc.cursor()
 account.execute("INSERT INTO Account_Mapping VALUES (Null, 0)")
