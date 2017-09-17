@@ -11,7 +11,7 @@ subscription_key = 'd101f6aafa5c44208ead247cfb3d8b32'
 # Replace or verify the region.
 #
 # You must use the same region in your REST API call as you used to obtain your subscription keys.
-# For example, if you obtained your subscription keys from the westus region, replace 
+# For example, if you obtained your subscription keys from the westus region, replace
 # "westcentralus" in the URI below with "westus".
 #
 # NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
@@ -33,7 +33,7 @@ params = urllib.urlencode({'handwriting' : 'true'})
 
 try:
     # This operation requrires two REST API calls. One to submit the image for processing,
-    # the other to retrieve the text found in the image. 
+    # the other to retrieve the text found in the image.
     #
     # This executes the first REST API call and gets the response.
     conn = httplib.HTTPSConnection(uri_base)
@@ -77,4 +77,28 @@ except Exception as e:
     print('Error:')
     print(e)
 
+
 ####################################
+# This is something which converts a given JSON-string to a better
+# string for keyword analysis
+
+def jsonToTxt(jsonString):
+    substringListOne=jsonString.split('"text": ')
+    substringListTwo=[]
+    stronk=""
+    for sub in substringListOne:
+        sub=sub[1:]
+        i=0
+        for s in sub:
+            if (s=='\"'):
+                break
+            i+=1
+        sub=sub[:i]
+        if len(sub)==0:
+            stronk+=sub
+        else:
+            stronk+=sub+" "
+    return stronk
+
+stank = jsonToTxt('"text": "Hi" "text": "Meh"')
+print(stank)
