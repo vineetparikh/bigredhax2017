@@ -70,7 +70,7 @@ try:
     # 'data' contains the JSON data. The following formats the JSON data for display.
     parsed = json.loads(data)
     print ("Response:")
-    print (json.dumps(parsed, sort_keys=True, indent=2))
+    jsonInput = json.dumps(parsed, sort_keys=True, indent=2)
     conn.close()
 
 except Exception as e:
@@ -100,5 +100,5 @@ def jsonToTxt(jsonString):
             stronk+=sub+" "
     return stronk
 
-stank = jsonToTxt('"text": "Hi" "text": "Meh"')
-print(stank)
+stank = jsonToTxt(jsonInput)
+print(stank) # converts given JSON-string to a better string for keyword analysis
