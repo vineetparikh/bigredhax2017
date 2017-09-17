@@ -17,6 +17,7 @@ vote_num=0
 download_num=0
 tag="List"
 school_class="Memology"
+
 # Inputs values into repo
 account.execute("INSERT INTO Images VALUES (user_id,link,name,vote_num,download_num,tag,school_class)")
 accGetter.commit()
