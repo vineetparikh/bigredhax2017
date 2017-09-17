@@ -25,8 +25,16 @@ headers = {
     'Ocp-Apim-Subscription-Key': subscription_key,
 }
 
+with open('C:/xampp/htdocs/bigredhax2017/Uploads/handnotes.jpg', 'r') as f:
+    imageSetup = f.read()
+)
+with open('C:/xampp/htdocs/bigredhax2017/data.txt', 'r') as f:
+    numberText = f.read()
+)
+
+
 # The URL of a JPEG image containing handwritten text.
-body = "{'url':'https://studymaterial.oureducation.in/wp-content/uploads/2016/05/Or3.png'}"
+body = "{'url':'C:/xampp/htdocs/bigredhax2017/Uploads/handnotes.jpg'}"
 
 # For printed text, set "handwriting" to false.
 params = urllib.urlencode({'handwriting' : 'true'})
@@ -101,4 +109,9 @@ def jsonToTxt(jsonString):
     return stronk
 
 stank = jsonToTxt(jsonInput)
-print(stank) # converts given JSON-string to a better string for keyword analysis
+
+###########
+# This will find the keywords in stank
+import rake
+import operator
+rake_object=rake.Rake("")
